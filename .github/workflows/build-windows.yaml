@@ -14,6 +14,7 @@ jobs:
       with:
         node-version: 14.x
     - run: npm install
-    - run: npm run installer:electron:win32
+    - run: npm run package:electron:win32
+#    - run: npm run installer:electron:win32
       env:
         CI: true
