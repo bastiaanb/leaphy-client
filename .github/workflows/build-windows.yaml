@@ -14,7 +14,14 @@ jobs:
       with:
         node-version: 14.x
     - run: npm install
-    - run: npm run package:electron:win32
+    - name: package
+      run: npm run package:electron:win32
 #    - run: npm run installer:electron:win32
+    - name: archive windows package
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-package
+        path: |
+          easybloqs-win32-x64
       env:
         CI: true
