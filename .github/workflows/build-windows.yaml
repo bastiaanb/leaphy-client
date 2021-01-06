@@ -32,3 +32,4 @@ jobs:
           installers/win32
       env:
         CI: true
+        DEBUG: electron-windows-installer:*

@@ -6,7 +6,7 @@ const electronInstaller = require('electron-winstaller');
       exe: 'easybloqs.exe',
       description: 'Leaphy Easybloqs',
       noMsi: true,
-      iconUrl: './easybloqs-icon.ico',
+      iconUrl: 'file://easybloqs-icon.ico',
       setupIcon: './easybloqs-icon.ico',
       setupExe: 'EasybloqsSetup.exe',
       loadingGif: './easybloqs-loading.gif'
