@@ -16,12 +16,19 @@ jobs:
     - run: npm install
     - name: package
       run: npm run package:electron:win32
-#    - run: npm run installer:electron:win32
     - name: archive windows package
       uses: actions/upload-artifact@v2
       with:
-        name: windows-package
+        name: easybloqs-win32-x64
         path: |
           easybloqs-win32-x64
+    - name: create installer
+      run: npm run installer:electron:win32
+    - name: archive windows installer
+      uses: actions/upload-artifact@v2
+      with:
+        name: easybloqs-win32-x64-installer
+        path: |
+          installers/win32
       env:
         CI: true
