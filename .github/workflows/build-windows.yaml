@@ -24,7 +24,7 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - run: yarn ci
+    - run: yarn install --frozen-lockfile
     - name: package
       run: yarn run package:electron:win32
     - name: archive windows package
