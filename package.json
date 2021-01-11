@@ -5,9 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "clean:darwin": "rm -f easybloqs.dmg && rm -rf dist && rm -rf easybloqs-darwin-x64",
-    "clean:linux": "rm -f easybloqs.dmg && rm -rf dist && rm -rf easybloqs-linux-x64",
-    "clean:win32": "del /s /q .\\installers\\win32\\*.* && if exist .\\easybloqs-win32-x64 rmdir /s /q .\\easybloqs-win32-x64",
+    "clean:darwin": "rm -f installers/darwin && rm -rf dist && rm -rf easybloqs-darwin-x64",
+    "clean:linux": "rm -rf installers/linux && rm -rf dist && rm -rf easybloqs-linux-x64",
+    "clean:win32": "rm -f easybloqs.dmg && rm -rf dist && rm -rf easybloqs-win32-x64",
+    "clean:win32not": "del /s /q .\\installers\\win32\\*.* && if exist .\\easybloqs-win32-x64 rmdir /s /q .\\easybloqs-win32-x64",
     "start:electron": "ng build --base-href ./ && electron .",
     "build": "ng build",
     "test": "ng test",

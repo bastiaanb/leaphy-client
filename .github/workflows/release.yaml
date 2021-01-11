@@ -106,10 +106,10 @@ jobs:
       run: yarn run package:electron:win32
 
     - name: Build Installer
-      run: yarn run build-installer:electron:win32
+      run: yarn run build-installer:electron:win32 ${{ needs.release.outputs.version }}
       env:
         CI: true
-        DEBUG: electron-windows-installer:*
+        DEBUG: electron-windows-installer:main
 
     - name: Upload Windows Setup Binary
       uses: actions/upload-release-asset@v1
@@ -120,6 +120,26 @@ jobs:
         asset_name: EasyBloqsSetup-${{ needs.release.outputs.version }}.exe
         asset_path: installers/win32/EasyBloqsSetup.exe
         asset_content_type: application/exe
+
+    - name: Upload Windows NuPkg
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.release.outputs.upload_url }}
+        asset_name: easybloqs-${{ needs.release.outputs.version }}-full.nupkg
+        asset_path: installers/win32/easybloqs-${{ needs.release.outputs.version }}-full.nupkg
+        asset_content_type: application/zip
+
+    - name: Upload Windows RELEASES
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.release.outputs.upload_url }}
+        asset_name: RELEASES
+        asset_path: installers/win32/RELEASES
+        asset_content_type: text/plain
 
   build_macos:
     name: Build MacOS

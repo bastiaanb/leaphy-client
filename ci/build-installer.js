@@ -9,7 +9,8 @@ const electronInstaller = require('electron-winstaller');
       iconUrl: 'file://easybloqs-icon.ico',
       setupIcon: './easybloqs-icon.ico',
       setupExe: 'EasybloqsSetup.exe',
-      loadingGif: './easybloqs-loading.gif'
+      loadingGif: './easybloqs-loading.gif',
+      version: process.argv[2]
     })
     .then(success => {
         console.log('It worked!');
